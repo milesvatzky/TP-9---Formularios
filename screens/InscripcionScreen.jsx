@@ -18,17 +18,12 @@ export default function InscripcionScreen() {
     telefono: "",
     categoria: "",
   });
-  const [camposTocados, setCamposTocados] = useState({});
 
   const errores = validarFormulario(formulario);
   const hayErrores = Object.values(errores).some((error) => !!error);
 
   const actualizarCampo = (campo, valor) => {
     setFormulario((prev) => ({ ...prev, [campo]: valor }));
-  };
-
-  const marcarTocado = (campo) => {
-    setCamposTocados((prev) => ({ ...prev, [campo]: true }));
   };
 
   const confirmarInscripcion = () => {
@@ -55,15 +50,13 @@ export default function InscripcionScreen() {
           subtitulo="Torneo de Valorant 5v5 - Temporada 2026"
         />
 
-        <FormularioInscripcion
-          formulario={formulario}
-          errores={errores}
-          tocados={camposTocados}
-          onCambioCampo={actualizarCampo}
-          onTocarCampo={marcarTocado}
-          onConfirmar={confirmarInscripcion}
-          deshabilitado={hayErrores}
-        />
+      <FormularioInscripcion
+        formulario={formulario}
+        errores={errores}
+        onCambioCampo={actualizarCampo}
+        onConfirmar={confirmarInscripcion}
+        deshabilitado={hayErrores}
+      />
       </ScrollView>
     </KeyboardAvoidingView>
   );

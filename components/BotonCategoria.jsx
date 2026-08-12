@@ -1,11 +1,10 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 
-export default function BotonCategoria({ label, activo, onPress, onBlur }) {
+export default function BotonCategoria({ label, activo, onPress }) {
   return (
     <Pressable
       style={[styles.boton, activo && styles.botonActivo]}
       onPress={onPress}
-      onBlur={onBlur}
     >
       <Text style={[styles.texto, activo && styles.textoActivo]}>{label}</Text>
     </Pressable>

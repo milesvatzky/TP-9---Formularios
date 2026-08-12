@@ -7,7 +7,6 @@ const CATEGORIAS = ["Sub-16", "Libre"];
 export default function SelectorCategoria({
   valor,
   onSeleccionar,
-  onTocar,
   error,
 }) {
   return (
@@ -15,12 +14,11 @@ export default function SelectorCategoria({
       <Text style={styles.label}>Categoría</Text>
       <View style={styles.fila}>
         {CATEGORIAS.map((categoria) => (
-          <BotonCategoria
+         <BotonCategoria
             key={categoria}
             label={categoria}
             activo={valor === categoria}
             onPress={() => onSeleccionar(categoria)}
-            onBlur={onTocar}
           />
         ))}
       </View>
